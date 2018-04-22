@@ -60,3 +60,5 @@ typings/
 # mock-api json data
 src/api/db.json
 
+# local production build
+dist
