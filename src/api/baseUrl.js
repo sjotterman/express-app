@@ -1,5 +1,5 @@
 export default function getBaseUrl() {
-  return getQueryStringParameterByName('useMockApi') ? 'http://localhost:3001/' : '/';
+  return getQueryStringParameterByName('useMockApi') ? 'https://vast-everglades-76962.herokuapp.com/' : '/';
 }
 
 function getQueryStringParameterByName(name, url) {
