@@ -9,7 +9,7 @@ describe('Our first test', () => {
 });
 
 describe('index.html', () => {
-  it('should have h1 that says users', (done) => {
+  it('should have div that explains the users table', (done) => {
     const index = fs.readFileSync('./src/index.html', 'utf-8');
     jsdom.env(index, function(err, window) {
       const usersApiTitle = window.document.getElementById('users-api-title');
