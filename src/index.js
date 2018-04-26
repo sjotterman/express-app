@@ -1,6 +1,6 @@
-import './index.css';
 import {getUsers, deleteUser} from './api/userApi';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 getUsers().then(result => {
   let usersBody = "";

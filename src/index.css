@@ -1,4 +1,5 @@
 body {
+  padding-top: 90px; /* fixes bootstrap navbar hiding content */
   font-family: Sans-Serif;
 }
 
