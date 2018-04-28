@@ -1,13 +1,14 @@
-import path from 'path';
 import webpack from 'webpack';
+import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
-  debug: true,
+  resolve: {
+    extensions: ['*', '.js', '.jsx', '.json']
+  },
   devtool: 'source-map',
-  noInfo: false,
   entry: {
     vendor: path.resolve(__dirname, 'src/vendor'),
     main: path.resolve(__dirname, 'src/index')
@@ -19,17 +20,27 @@ export default {
     filename: '[name].[chunkhash].js'
   },
   plugins: [
+    // Global loader configuration
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+      noInfo: true // set to false to see a list of every file being bundled.
+    }),
+
     // Generate an external css file with a hash in the filename
     new ExtractTextPlugin('[name].[contenthash].css'),
+
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
+
     // Use CommonsChunkPlugin to create a separate bundle
     // of vendor libraries so that they're cached separately.
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
+
     // Create HTML file that includes reference to bundled JS.
-    new  HtmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: 'src/index.html',
       minify: {
         removeComments: true,
@@ -48,15 +59,14 @@ export default {
       // using htmlWebpackPlugin.options.varName
       trackJSToken: 'a04ce9b4a6f54171a996364ca786c5c8'
     }),
-    // Eliminate duplicate packages when generating bundle
-    new webpack.optimize.DedupePlugin(),
+
     // Minify JS
     new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
-    loaders: [
-      {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap')}
+    rules: [
+      {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
+      {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader?sourceMap')}
     ]
   }
-}
+};
