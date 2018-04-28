@@ -11,7 +11,7 @@
     <% if (htmlWebpackPlugin.options.trackJSToken) {  %>
     <!-- BEGIN TRACKJS -->
     <script type="text/javascript">window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };</script>
-    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js" async></script>
 
     <!-- END TRACKJS -->
     <% } %>
@@ -63,12 +63,6 @@
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
       </div>
       <div id="users-api-title" class="h2">Example users API call</div>
-        <div id="users-api-loading-preload">
-          <p>
-            Loading list of users...
-            <i id="users-api-loading-spinner" class = "fas fa-spinner fa-spin"></i>
-          </p>
-        </div>
       <div class="table-responsive">
         <table class='table table-striped'>
           <thead class="thead-light">
@@ -79,6 +73,12 @@
             <th class='d-sm-table-cell'>Email</th>
           </thead>
           <tbody id="users">
+            <td rowspan="2" colspan="5">
+            <span id="users-api-loading-preload">
+              Loading...
+              <i id="users-api-loading-spinner" class = "fas fa-spinner fa-spin"></i>
+            </span>
+            </td>
           </tbody>
         </table>
       </div>
