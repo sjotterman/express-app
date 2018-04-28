@@ -12,8 +12,10 @@
     <!-- BEGIN TRACKJS -->
     <script type="text/javascript">window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };</script>
     <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+
     <!-- END TRACKJS -->
     <% } %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Sample project meant to demonstrate Javascript development">
@@ -61,6 +63,12 @@
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
       </div>
       <div id="users-api-title" class="h2">Example users API call</div>
+        <div id="users-api-loading-preload">
+          <p>
+            Loading list of users...
+            <i id="users-api-loading-spinner" class = "fas fa-spinner fa-spin"></i>
+          </p>
+        </div>
       <div class="table-responsive">
         <table class='table table-striped'>
           <thead class="thead-light">

@@ -6,3 +6,7 @@ body {
 table th {
   padding: 5px;
 }
+
+.users-api-loading-spinner {
+  font-size: 3em;
+}

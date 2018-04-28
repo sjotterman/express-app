@@ -16,6 +16,7 @@ getUsers().then(result => {
     <tr>`;
   });
   global.document.getElementById('users').innerHTML = usersBody;
+  global.document.getElementById('users-api-loading-preload').style.visibility = "hidden";
 
   const deleteLinks =  global.document.getElementsByClassName('deleteUser');
 
