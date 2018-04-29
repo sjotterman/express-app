@@ -17,7 +17,7 @@ test_script:
   - node --version
   - npm --version
   # start server for UI tests
-  - npm run open:src &
+  - START /B npm run open:src
   # run tests
   - npm test
 
