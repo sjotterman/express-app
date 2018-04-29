@@ -6,4 +6,4 @@ node_js:
 
 before_script:
   #start server
-  - npm run open:src
+  - npm run open:src &
