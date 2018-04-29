@@ -14,6 +14,8 @@
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
     "testcafe": "testcafe chrome",
+    "ui-tests" : "npm run testcafe \"src/**Test.js\"",
+    "headless-ui-tests" : "testcafe \"chrome:headless\" \"src/**Test.js\"",
     "generate-mock-data": "babel-node buildScripts/generateMockData",
     "prestart-mockapi": "npm run generate-mock-data",
     "start-mockapi": "json-server --watch src/api/db.json --port 3001",
