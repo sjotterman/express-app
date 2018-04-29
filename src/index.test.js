@@ -9,11 +9,11 @@ describe('Our first test', () => {
 });
 
 describe('index.html', () => {
-  it('should have h1 that says users', (done) => {
+  it('should have div that explains the users table', (done) => {
     const index = fs.readFileSync('./src/index.html', 'utf-8');
     jsdom.env(index, function(err, window) {
-      const h1 = window.document.getElementsByTagName('h1')[0];
-      expect(h1.innerHTML).to.equal('Users') ;
+      const usersApiTitle = window.document.getElementById('users-api-title');
+      expect(usersApiTitle.innerHTML).to.equal('Example users API call') ;
       done();
       window.close();
     });
