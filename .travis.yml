@@ -5,4 +5,5 @@ node_js:
 
 
 before_script:
-  - npm open:src #start server
+  #start server
+  - npm run open:src
