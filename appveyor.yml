@@ -16,6 +16,8 @@ test_script:
   # Output useful info for debugging.
   - node --version
   - npm --version
+  # start server for UI tests
+  - start /min npm run open:src
   # run tests
   - npm test
 

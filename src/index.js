@@ -31,3 +31,11 @@ getUsers().then(result => {
     };
   });
 });
+
+const frontpageTestBtn = global.document.getElementById("frontpage-test-btn");
+
+frontpageTestBtn.addEventListener('click', function(event) {
+  const starterH1 = global.document.getElementById("starter-h1");
+  starterH1.innerText = "Button has been clicked!";
+
+});
